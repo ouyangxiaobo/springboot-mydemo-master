@@ -1,0 +1,45 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/usersdata?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+  jackson:
+      default-property-inclusion: ALWAYS
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+      file-size-threshold: 0
+      location: \\E:\images
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.github.mydemo.model
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+logging:
+  level:
+    com:
+      github:
+        mydemo:
+          dao: debug
+
+
+
+
